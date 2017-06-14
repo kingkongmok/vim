@@ -22,3 +22,6 @@
 [submodule "bundle/bash-support.vim"]
 	path = bundle/bash-support.vim
 	url = https://github.com/vim-scripts/bash-support.vim
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
