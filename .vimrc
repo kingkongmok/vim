@@ -125,7 +125,8 @@ set shiftwidth=4
 " autocmd FileType python nnoremap <buffer> K :<C-u>execute "!pydoc " . expand("<cword>")<CR>
 
 " Revision History wich Gundo plugin.
-map <leader>g :GundoToggle<CR>
+"map <leader>g :GundoToggle<CR>
+map <C-g> :GundoToggle<CR>
 
 " http://stackoverflow.com/questions/235439/vim-80-column-layout-concerns
 let &colorcolumn=join(range(81,999),",")
