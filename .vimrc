@@ -117,6 +117,8 @@ set textwidth=80
 set tabstop=8
 set softtabstop=4
 set shiftwidth=4
+"http://vim.wikia.com/wiki/Search_only_in_unfolded_text
+set fdo-=search
 
 " " run python
 " autocmd FileType python nnoremap <buffer> \rr :exec '!python' shellescape(@%, 1)<cr>
