@@ -50,7 +50,8 @@ endif
 :filetype plugin on
 
 " setting for MRU
-map <leader>f :MRU<CR>
+map <C-m> :MRU<CR>
+" map <leader>f :MRU<CR>
 highlight link MRUFileName LineNr
 let MRU_Max_Entries = 1000
 " let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'  " For Unix
