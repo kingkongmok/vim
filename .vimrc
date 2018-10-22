@@ -50,8 +50,7 @@ endif
 :filetype plugin on
 
 " setting for MRU
-map <C-m> :MRU<CR>
-" map <leader>f :MRU<CR>
+map <C-h> :MRU<CR>
 highlight link MRUFileName LineNr
 let MRU_Max_Entries = 1000
 " let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'  " For Unix
@@ -114,7 +113,7 @@ set complete-=i
 " http://blog.dispatched.ch/2009/05/24/vim-as-python-ide/
 " PEP 8(Pythons' style guide) and to have decent eye candy:
 "set expandtab
-set textwidth=80
+"set textwidth=80
 set tabstop=8
 set softtabstop=4
 set shiftwidth=4
@@ -127,14 +126,18 @@ set fdo-=search
 " autocmd FileType python nnoremap <buffer> \rs :exec '!python -m py_compile' shellescape(@%, 1)<cr>
 " autocmd FileType python nnoremap <buffer> K :<C-u>execute "!pydoc " . expand("<cword>")<CR>
 
+
+if has('python3')
+    let g:gundo_prefer_python3 = 1
+endif
 " Revision History wich Gundo plugin.
 "map <leader>g :GundoToggle<CR>
 map <C-g> :GundoToggle<CR>
 
 " http://stackoverflow.com/questions/235439/vim-80-column-layout-concerns
-let &colorcolumn=join(range(81,999),",")
-let &colorcolumn="80,".join(range(400,999),",")
-highlight Comment ctermfg=green
+"let &colorcolumn=join(range(81,999),",")
+"let &colorcolumn="80,".join(range(400,999),",")
+"highlight Comment ctermfg=green
 
 "https://github.com/scrooloose/nerdtree
 " Stick this in your vimrc to open NERDTree with Ctrl+n (you can set whatever
@@ -143,3 +146,5 @@ map <C-n> :NERDTreeToggle<CR>
 "open a NERDTree automatically when vim starts up if no files were specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+au BufRead,BufNewFile /etc/nginx/*,/etc/nginx/conf.d/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
